@@ -9,8 +9,8 @@ class Player():
         self.vel=vel
         self.s_w=s_w
         self.s_h=s_h
-        self.coulor=(255,128,0)
-        self.hitbox=pygame.Rect(self.x,self.y,self.radius*2,self.radius*2)
+        self.coulor=(255,255,0)
+        self.hitbox=pygame.Rect(self.x-self.radius,self.y-self.radius,self.radius*2,self.radius*2)
         self.up=False
         self.left=False
         self.right=False
@@ -19,7 +19,9 @@ class Player():
     
     def show(self,surface):
         pygame.draw.circle(surface,self.coulor,(self.x,self.y),self.radius)
-        self.hitbox=pygame.Rect(self.x,self.y,self.radius*2,self.radius*2)
+        self.hitbox=pygame.Rect(self.x-self.radius,self.y-self.radius,self.radius*2,self.radius*2)
+        pygame.draw.rect(surface,(255,255,255),self.hitbox,1)
+
 
     def move(self):
         keys=pygame.key.get_pressed()
