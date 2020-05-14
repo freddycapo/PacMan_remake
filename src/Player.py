@@ -20,7 +20,7 @@ class Player():
     def show(self,surface):
         pygame.draw.circle(surface,self.coulor,(self.x,self.y),self.radius)
         self.hitbox=pygame.Rect(self.x-self.radius,self.y-self.radius,self.radius*2,self.radius*2)
-        pygame.draw.rect(surface,(255,255,255),self.hitbox,1)
+        #pygame.draw.rect(surface,(255,255,255),self.hitbox,1)
 
 
     def move(self):

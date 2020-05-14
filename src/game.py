@@ -3,6 +3,7 @@ import random
 from pygame import *
 from Player import Player
 from Food import Food
+from Enemy import Enemy
 
 pygame.init()
 
@@ -23,12 +24,25 @@ colors=[green,blue,red,Lblue]
 
 pacman=Player(width//2,heigth//2,10,2,width,heigth)
 foods=[]
+n_enemies=4
+enemies=[]
 
 run=True
 while run:
     clock.tick(120)
     pacman.move()
     pacman.show(window)
+
+    if len(enemies)<=n_enemies:
+        enemies.append(Enemy(random.randint(0,width),
+                                random.randint(0,heigth),
+                                20,
+                                20,
+                                2,
+                                width,
+                                heigth
+                            )
+                        )
 
     if len(foods)==0:
         foods.append(Food(random.randint(0,width),
@@ -51,6 +65,13 @@ while run:
                 score+=30
             
             foods.remove(food)
+
+    for enemy in enemies:
+        enemy.show(window)
+        enemy.move()
+        if pygame.Rect.colliderect(pacman.hitbox,enemy.hitbox):
+            run=False
+        
 
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
