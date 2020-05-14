@@ -1,6 +1,7 @@
 import pygame
 import random
 from pygame import *
+
 from Player import Player
 from Food import Food
 from Enemy import Enemy
@@ -76,7 +77,7 @@ while run:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             run=False
-    
+
     text=font.render("Score: "+ str(score),1,(255,255,255))
     window.blit(text,(width-150,30))
 

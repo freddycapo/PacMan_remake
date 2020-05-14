@@ -22,11 +22,11 @@ class Enemy():
     def show(self,surface):
         pygame.draw.rect(surface,self.color,(self.x,self.y,self.width,self.heigth))
         self.hitbox=pygame.Rect(self.x,self.y,self.width,self.heigth)
-        pygame.draw.rect(surface,(255,255,255),self.hitbox,1)
+        #pygame.draw.rect(surface,(255,255,255),self.hitbox,1)
 
     def move(self):
         self.tick+=1
-        if self.tick>=10:
+        if self.tick>=15:
             self.new_cur_dir=random.choice(self.directions)
             if self.cur_dir==self.new_cur_dir:
                 self.new_cur_dir=random.choice(self.directions)
